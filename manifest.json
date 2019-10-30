@@ -1,0 +1,38 @@
+{
+  "name": "IOTutorial",
+  "host": {
+    "app": "XD",
+    "minVersion": "21.0"
+  },
+  "id": "8daaee43",
+  "icons": [
+    {
+      "path": "images/icon@1x.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "path": "images/icon@2x.png",
+      "width": 48,
+      "height": 48
+    }
+  ],
+  "uiEntryPoints": [
+    {
+      "label": "Export Rendition",
+      "type": "menu",
+      "commandId": "exportRendition"
+    },
+    {
+      "label": "Insert Text From File",
+      "type": "menu",
+      "commandId": "insertTextFromFileCommand"
+    },
+    {
+      "label": "Make network requests",
+      "type": "menu",
+      "commandId": "applyImage"
+    }
+  ],
+  "version": "0.0.1"
+}
