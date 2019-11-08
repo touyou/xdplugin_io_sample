@@ -2,6 +2,7 @@ const application = require("application");
 const uxp = require("uxp");
 const fs = require("uxp").storage.localFileSystem;
 const { Text, Color, ImageFill } = require("scenegraph");
+const { alert, error, confirm } = require("./lib/dialogs.js");
 
 // MARK: Helper
 
@@ -112,10 +113,42 @@ function applyImage(selection) {
     }
 }
 
+// MARK: Alert
+
+async function showAlert() {
+    await alert("Connect to the Internet", "In order to function correctly, this plugin requires access to the Internet. Please connect to a network that has Internet access.");
+}
+
+async function showError() {
+    await error("Synchronization Failed", //[1]
+        "Failed to synchronize all your changes with our server. Some changes may have been lost.",
+        "Steps you can take:",
+        "* Save your document",
+        "* Check your network connection",
+        "* Try again in a few minutes"); //[2]
+}
+
+async function showConfirm() {
+    const feedback = await confirm("Enable Smart Filters?",
+        "Smart filters are nondestructive and will preserve your original images.",
+        ["Cancel", "Enable"]);
+    switch (feedback.which) {
+        case 0:
+            showError();
+            break;
+        case 1:
+            showAlert();
+            break;
+    }
+}
+
 module.exports = {
     commands: {
         exportRendition,
         "insertTextFromFileCommand": insertTextFromFileHandler,
-        applyImage
+        applyImage,
+        showAlert,
+        showError,
+        showConfirm
     }
 };

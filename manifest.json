@@ -32,6 +32,21 @@
       "label": "Make network requests",
       "type": "menu",
       "commandId": "applyImage"
+    },
+    {
+      "label": "How to show an alert",
+      "type": "menu",
+      "commandId": "showAlert"
+    },
+    {
+      "label": "How to show an error",
+      "type": "menu",
+      "commandId": "showError"
+    },
+    {
+      "type": "menu",
+      "label": "Confirmation",
+      "commandId": "showConfirm"
     }
   ],
   "version": "0.0.1"
